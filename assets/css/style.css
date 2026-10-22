@@ -282,3 +282,12 @@ h3 { font-family: var(--serif); font-weight: 400; font-size: var(--t-lead); line
 .ico .dot { fill: currentColor; stroke: none; }
 .actions a:hover .ico, .mail:hover .ico { opacity: 1; transform: translateY(-1px); }
 .mail .ico { width: 0.7em; height: 0.7em; margin-right: 0.4rem; vertical-align: -0.02em; }
+
+/* ---------- Monograma na barra ---------- */
+
+.brand { display: inline-flex; align-items: center; gap: 0.7rem; }
+.brand .mono { height: 28px; width: auto; flex: none; color: var(--paper); }
+.brand:hover .mono { color: var(--signal); }
+.brand .mono g { stroke: currentColor; stroke-width: 16; stroke-linejoin: round; }
+.brand span { white-space: nowrap; }
+@media (max-width: 560px) { .brand span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); } }
