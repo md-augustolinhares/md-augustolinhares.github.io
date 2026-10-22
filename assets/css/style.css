@@ -275,3 +275,10 @@ h3 { font-family: var(--serif); font-weight: 400; font-size: var(--t-lead); line
 @media (max-width: 560px) { .post-list a { grid-template-columns: minmax(0, 1fr) 4.5rem; } .post-list time { grid-column: 1 / -1; } .post-list img { width: 4.5rem; } }
 .posts a { color: var(--ink); text-decoration: none; }
 .posts a:hover figcaption { color: var(--link); }
+
+/* ---------- Ícones dos links (traço fino, sem fundo) ---------- */
+
+.ico { width: 1.2em; height: 1.2em; flex: none; margin-right: 0.55rem; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; opacity: 0.85; transition: opacity 200ms var(--ease), transform 200ms var(--ease); }
+.ico .dot { fill: currentColor; stroke: none; }
+.actions a:hover .ico, .mail:hover .ico { opacity: 1; transform: translateY(-1px); }
+.mail .ico { width: 0.7em; height: 0.7em; margin-right: 0.4rem; vertical-align: -0.02em; }
