@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medical Prescription Assistant — full case | Augusto Linhares</title>
+  <meta name="description" content="A web app I built for a pain point in my own work: replacing writing with selecting when prescribing. Problem, decisions, result and limits.">
+  <link rel="alternate" hreflang="pt-BR" href="https://md-augustolinhares.github.io/casos/assistente-prescricao/">
+  <link rel="alternate" hreflang="en" href="https://md-augustolinhares.github.io/en/cases/prescription-assistant/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Instrument+Serif&display=swap">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <script src="../../../assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="bar">
+    <div class="wrap">
+      <a href="../../">Augusto Linhares</a>
+      <nav aria-label="Sections">
+        <a href="../../#cases">Cases</a>
+        <a href="../../#contact">Contact</a>
+        <a class="lang" href="../../../casos/assistente-prescricao/" hreflang="pt-BR" lang="pt-BR">PT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="dark case-head">
+      <div class="wrap">
+        <h1 class="rise">Medical Prescription Assistant</h1>
+        <p class="lead rise" style="--i:1">A web app I built for a pain point in my own work: turning prescription writing into selecting and clicking.</p>
+        <p class="limits rise" style="--i:2"><strong>Limits, first.</strong> An individual support tool, built for my own workflow, not a product for other services. It does not suggest doses or treatment decisions: it only formats the prescription the physician has already decided. The time saved is my estimate, not a measurement.</p>
+      </div>
+    </section>
+
+    <div class="wrap case-body">
+      <nav class="toc" aria-label="Case parts">
+        <ol>
+          <li><a href="#card">Case card</a></li>
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#done">What I did</a></li>
+          <li><a href="#result">Result</a></li>
+        </ol>
+      </nav>
+
+      <div>
+        <section class="rise" id="card" aria-labelledby="card-t">
+          <h2 id="card-t">Case card</h2>
+          <dl class="ficha">
+            <div class="full"><dt>Context</dt><dd>A personal project. It came from a recurring pain point in my work: prescriptions were written by hand, with no digital standard.</dd></div>
+            <div class="full"><dt>My role</dt><dd>Solo, from scope to architecture. I defined the protocols and pre-set templates, decided to replace writing with selecting and designed the AI sub-agent architecture used to build the project. I used AI as a development partner for technical execution; the product and clinical workflow decisions were mine.</dd></div>
+            <div class="full"><dt>Skills this case shows</dt><dd>Defining product scope from a pain point lived in clinical practice; choosing between personalizing and generalizing a system; using a multi-agent AI setup to build software as a physician, not an engineer.</dd></div>
+            <div><dt>Tools</dt><dd>Next.js, TypeScript, Prisma, SQLite via Turso, JWT authentication, AI sub-agents (Claude Code)</dd></div>
+            <div><dt>Evidence</dt><dd><a href="https://github.com/md-augustolinhares/assistente-prescricao">Public repository on GitHub</a></dd></div>
+          </dl>
+        </section>
+
+        <section class="rise" id="problem" aria-labelledby="problem-t">
+          <h2 id="problem-t">Problem</h2>
+          <p>In my work, each handwritten prescription took about 10 minutes, even when much of the content repeated from one patient to the next. The process ran on paper and spreadsheets, with no digital standard. It was a lot of time for a repetitive task.</p>
+        </section>
+
+        <section class="rise" id="done" aria-labelledby="done-t">
+          <h2 id="done-t">What I did</h2>
+          <ul>
+            <li><strong>Personal scope:</strong> I chose to build a system for my own workflow, not a generic system for any service. It comes set up with the medications and prescriptions I use most.</li>
+            <li><strong>Templates and protocols:</strong> I pre-set recurring clinical templates and protocols, such as insulin therapy and hypertensive emergency, to cut repetitive typing.</li>
+            <li><strong>Core design decision:</strong> I replaced writing with clicking and selecting in tables. The bet: repeated typing is what eats the time.</li>
+            <li><strong>Deliberate scope limit:</strong> the system only structures and formats the prescription I have already decided. No AI model suggests doses or treatment. The clinical decision stays entirely mine.</li>
+            <li><strong>Sub-agent architecture:</strong> I built the project with a coordinator agent that calls specialized sub-agents (backend, frontend, database and code review), in a design I defined.</li>
+            <li><strong>Confidentiality:</strong> the code is white-label. No institution name or logo is kept in the code.</li>
+          </ul>
+          <figure class="rise">
+            <img src="../../../assets/img/assistente-modelos.webp" width="1260" height="788" alt="Screen of the Assistant with six base prescription templates, descriptions blurred." loading="lazy">
+            <figcaption>Base templates I configured (interface in Portuguese). Descriptions are blurred in this image.</figcaption>
+          </figure>
+        </section>
+
+        <section class="rise" id="result" aria-labelledby="result-t">
+          <h2 id="result-t">Result</h2>
+          <p>I designed, built, prototyped and tested the workflow in my own use. By my estimate, the time per prescription dropped from about 10 minutes to 3 to 5 minutes.</p>
+          <p>The main gain is not speed itself. It is less time on paperwork and more time to analyze, discuss and pay attention to patients.</p>
+          <figure class="rise">
+            <img src="../../../assets/img/assistente-plantao.webp" width="1300" height="506" alt="Screen of the Assistant with a test shift and two patients identified only by bed." loading="lazy">
+            <figcaption>A test shift (interface in Portuguese). Patients appear only as a bed number.</figcaption>
+          </figure>
+          <p class="case-links"><a href="https://github.com/md-augustolinhares/assistente-prescricao">See the repository on GitHub</a><a href="../medgemma/">Previous case: MedGemma Lung LoRA</a></p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="close">
+    <div class="wrap">
+      <p class="name">Augusto Linhares</p>
+      <p>Independent personal project. An individual support tool. Not a substitute for medical evaluation.</p>
+      <p class="note">No cookies, no analytics.</p>
+    </div>
+  </footer>
+</body>
+</html>

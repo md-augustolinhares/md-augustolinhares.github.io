@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assistente de Prescrição Médica — caso completo | Augusto Linhares</title>
+  <meta name="description" content="App web que criei para uma dor do meu próprio trabalho: trocar escrever por selecionar na prescrição. Problema, decisões, resultado e limites.">
+  <link rel="alternate" hreflang="pt-BR" href="https://md-augustolinhares.github.io/casos/assistente-prescricao/">
+  <link rel="alternate" hreflang="en" href="https://md-augustolinhares.github.io/en/cases/prescription-assistant/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Instrument+Serif&display=swap">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="../../assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="bar">
+    <div class="wrap">
+      <a href="../../">Augusto Linhares</a>
+      <nav aria-label="Seções">
+        <a href="../../#casos">Casos</a>
+        <a href="../../#contato">Contato</a>
+        <a class="lang" href="../../en/cases/prescription-assistant/" hreflang="en" lang="en">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="dark case-head">
+      <div class="wrap">
+        <h1 class="rise">Assistente de Prescrição Médica</h1>
+        <p class="lead rise" style="--i:1">Um app web que criei para uma dor do meu próprio trabalho: transformar escrever a prescrição em selecionar e clicar.</p>
+        <p class="limits rise" style="--i:2"><strong>Limites, antes de tudo.</strong> Ferramenta de apoio individual, feita para o meu fluxo, não um produto para outros serviços. Não sugere doses nem condutas: só formata a prescrição que o médico já decidiu. O ganho de tempo é uma estimativa minha, não uma medição.</p>
+      </div>
+    </section>
+
+    <div class="wrap case-body">
+      <nav class="toc" aria-label="Partes do caso">
+        <ol>
+          <li><a href="#ficha">Ficha</a></li>
+          <li><a href="#problema">Problema</a></li>
+          <li><a href="#feito">O que foi feito</a></li>
+          <li><a href="#resultado">Resultado</a></li>
+        </ol>
+      </nav>
+
+      <div>
+        <section class="rise" id="ficha" aria-labelledby="ficha-t">
+          <h2 id="ficha-t">Ficha</h2>
+          <dl class="ficha">
+            <div class="full"><dt>Contexto</dt><dd>Projeto pessoal. Nasceu de uma dor recorrente no meu trabalho: a prescrição era escrita à mão, sem padronização digital.</dd></div>
+            <div class="full"><dt>Meu papel</dt><dd>Sozinho, do escopo à arquitetura. Defini os protocolos e os modelos pré-configurados, decidi trocar escrever por selecionar e desenhei a arquitetura de subagentes de IA usada para construir o projeto. Usei IA como par de desenvolvimento na execução técnica; as decisões de produto e de fluxo clínico foram minhas.</dd></div>
+            <div class="full"><dt>Competências que o caso prova</dt><dd>Definir escopo de produto a partir de uma dor vivida na prática clínica; decidir entre personalizar e generalizar um sistema; usar uma arquitetura de IA com vários agentes para construir software sendo médico, não engenheiro.</dd></div>
+            <div><dt>Ferramentas</dt><dd>Next.js, TypeScript, Prisma, banco SQLite via Turso, autenticação JWT, subagentes de IA (Claude Code)</dd></div>
+            <div><dt>Evidência</dt><dd><a href="https://github.com/md-augustolinhares/assistente-prescricao">Repositório público no GitHub</a></dd></div>
+          </dl>
+        </section>
+
+        <section class="rise" id="problema" aria-labelledby="problema-t">
+          <h2 id="problema-t">Problema</h2>
+          <p>No meu trabalho, cada prescrição escrita à mão levava cerca de 10 minutos, mesmo quando boa parte do conteúdo se repetia de um paciente para outro. O processo era feito em papel e planilha, sem padronização digital. Era um tempo grande para uma tarefa repetitiva.</p>
+        </section>
+
+        <section class="rise" id="feito" aria-labelledby="feito-t">
+          <h2 id="feito-t">O que foi feito</h2>
+          <ul>
+            <li><strong>Escopo pessoal:</strong> decidi construir um sistema para o meu próprio fluxo, não um sistema genérico para qualquer serviço. Ele já vem configurado com as medicações e prescrições que eu mais uso.</li>
+            <li><strong>Modelos e protocolos:</strong> pré-configurei modelos clínicos e protocolos recorrentes, como insulinização e emergência hipertensiva, para reduzir a digitação repetitiva.</li>
+            <li><strong>Decisão central de design:</strong> troquei escrever por clicar e selecionar em tabelas. A aposta: é a digitação repetida que consome o tempo.</li>
+            <li><strong>Limite deliberado de escopo:</strong> o sistema só estrutura e formata a prescrição que eu já decidi. Nenhum modelo de IA sugere dose ou conduta. A decisão clínica continua inteiramente minha.</li>
+            <li><strong>Arquitetura de subagentes:</strong> construí o projeto com um agente coordenador que aciona subagentes especializados (backend, frontend, banco de dados e revisão de código), num desenho que eu mesmo defini.</li>
+            <li><strong>Sigilo:</strong> o código é white-label. Nome e logo de instituição não ficam no código.</li>
+          </ul>
+          <figure class="rise">
+            <img src="../../assets/img/assistente-modelos.webp" width="1260" height="788" alt="Tela do Assistente com seis modelos base de prescrição, com as descrições desfocadas." loading="lazy">
+            <figcaption>Modelos base que eu configurei. As descrições estão desfocadas nesta imagem.</figcaption>
+          </figure>
+        </section>
+
+        <section class="rise" id="resultado" aria-labelledby="resultado-t">
+          <h2 id="resultado-t">Resultado</h2>
+          <p>Desenhei, construí, prototipei e testei o fluxo no meu próprio uso. Pela minha estimativa, o tempo por prescrição caiu de cerca de 10 minutos para 3 a 5 minutos.</p>
+          <p>O ganho principal não é a velocidade em si. É reduzir o tempo gasto com burocracia e aumentar o tempo para analisar, discutir e dar atenção aos pacientes.</p>
+          <figure class="rise">
+            <img src="../../assets/img/assistente-plantao.webp" width="1300" height="506" alt="Tela do Assistente com um plantão de teste e dois pacientes identificados só pelo leito." loading="lazy">
+            <figcaption>Um plantão de teste. Os pacientes aparecem só como leito.</figcaption>
+          </figure>
+          <p class="case-links"><a href="https://github.com/md-augustolinhares/assistente-prescricao">Ver o repositório no GitHub</a><a href="../medgemma/">Caso anterior: MedGemma Lung LoRA</a></p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="close">
+    <div class="wrap">
+      <p class="name">Augusto Linhares</p>
+      <p>Projeto pessoal independente. Ferramenta de apoio individual. Não substitui avaliação médica.</p>
+      <p class="note">Sem cookies e sem analytics.</p>
+    </div>
+  </footer>
+</body>
+</html>

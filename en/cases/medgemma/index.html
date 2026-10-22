@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MedGemma Lung LoRA — full case | Augusto Linhares</title>
+  <meta name="description" content="Fine-tuning MedGemma to estimate the lung-to-thorax ratio on chest X-rays. Problem, hypothesis, investigation, solution, risks and impact. No clinical validation.">
+  <link rel="alternate" hreflang="pt-BR" href="https://md-augustolinhares.github.io/casos/medgemma/">
+  <link rel="alternate" hreflang="en" href="https://md-augustolinhares.github.io/en/cases/medgemma/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Instrument+Serif&display=swap">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <script src="../../../assets/js/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="bar">
+    <div class="wrap">
+      <a href="../../">Augusto Linhares</a>
+      <nav aria-label="Sections">
+        <a href="../../#cases">Cases</a>
+        <a href="../../#contact">Contact</a>
+        <a class="lang" href="../../../casos/medgemma/" hreflang="pt-BR" lang="pt-BR">PT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="dark case-head">
+      <div class="wrap">
+        <h1 class="rise">MedGemma Lung LoRA</h1>
+        <p class="lead rise" style="--i:1">Fine-tuning a medical AI model to estimate the lung-to-thorax ratio on chest X-rays. A personal study project.</p>
+        <p class="limits rise" style="--i:2"><strong>Limits, first.</strong> 1.98% mean error in validation against the segmentation masks of a public dataset. Qualitative test on 4 external images, without ground truth. No clinical validation. It does not diagnose anything.</p>
+      </div>
+    </section>
+
+    <div class="wrap case-body">
+      <nav class="toc" aria-label="Case parts">
+        <ol>
+          <li><a href="#card">Case card</a></li>
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#hypothesis">Hypothesis</a></li>
+          <li><a href="#investigation">Investigation</a></li>
+          <li><a href="#solution">Solution</a></li>
+          <li><a href="#risks">Risks</a></li>
+          <li><a href="#impact">Impact</a></li>
+        </ol>
+      </nav>
+
+      <div>
+        <section class="rise" id="card" aria-labelledby="card-t">
+          <h2 id="card-t">Case card</h2>
+          <dl class="ficha">
+            <div class="full"><dt>Context</dt><dd>A personal study project, driven by a practical skill gap I wanted to close: fine-tuning a medical vision model from scratch.</dd></div>
+            <div class="full"><dt>My role</dt><dd>Solo, from start to finish. The technical and product decisions (what to train, which metric to use, when to change approach) were mine. I used Claude Code as a programming partner for execution; the clinical reading, the problem definition and the judgment on how reliable the result was were mine.</dd></div>
+            <div class="full"><dt>Skills this case shows</dt><dd>Framing a testable hypothesis before training; spotting data and metric bias before it becomes a silent error; validating against external cases instead of trusting only the training metric; justifying a technical trade-off with clinical reasoning; documenting limits in proportion to the result.</dd></div>
+            <div><dt>Tools</dt><dd>MedGemma (Google), Hugging Face (transformers, peft), LoRA, Gradio, scikit-image, local NVIDIA GPU · AI-assisted programming</dd></div>
+            <div><dt>Evidence</dt><dd><a href="https://github.com/md-augustolinhares/medgemma-lung-lora">Public repository on GitHub</a>, with code, a README of the process and images of the app</dd></div>
+          </dl>
+        </section>
+
+        <section class="rise" id="problem" aria-labelledby="problem-t">
+          <h2 id="problem-t">Problem</h2>
+          <p>This project did not come from a clinical problem reported by a real user, nor from validated market demand. It came from a practical skill gap (I did not know, in practice, how to fine-tune a medical vision model) and from a hypothetical clinical question: can a useful measure be extracted from a chest X-ray, automatically and quantitatively, instead of only a qualitative description ("small", "moderate", "large")?</p>
+          <p>Quantitative radiology already uses geometric measures for similar findings, such as the cardiothoracic ratio and Light's index for pneumothorax. That makes the question clinically plausible, even without a user waiting for the answer today.</p>
+        </section>
+
+        <section class="rise" id="hypothesis" aria-labelledby="hypothesis-t">
+          <h2 id="hypothesis-t">Hypothesis</h2>
+          <p>If I trained a model on top of MedGemma's vision encoder to predict the lung-to-thorax ratio, I expected it to generalize reasonably to images outside the training set, because the architecture is already pre-trained on medical images.</p>
+          <ul>
+            <li><strong>Primary metric:</strong> mean absolute error (MAE) in validation, against the label computed from the dataset's segmentation mask (not against specialist reading).</li>
+            <li><strong>Success criterion,</strong> formalized along the way rather than set in advance: low validation error and directional coherence in at least one external test with a known clinical expectation (the inspiration/expiration pair of the same patient).</li>
+            <li><strong>Cheaper hypothesis, tested first:</strong> a linear probe (one layer trained on top of the frozen encoder) would be enough. It worked only in part: the encoder carries enough signal, but the probe did not generalize to cases outside the training set.</li>
+          </ul>
+        </section>
+
+        <section class="rise" id="investigation" aria-labelledby="investigation-t">
+          <h2 id="investigation-t">Investigation</h2>
+          <ol class="steps">
+            <li><strong>Dataset:</strong> Montgomery + Shenzhen Chest X-ray Segmentation (Mendeley Data, CC BY 4.0, DOI 10.17632/8gf9vpkhgy.2), 704 X-rays with lung masks annotated by specialists, built for tuberculosis screening.</li>
+            <li><strong>Thorax mask:</strong> the dataset only had lung masks; I computed the thorax mask with an intensity threshold.</li>
+            <li><strong>Error one, automatic threshold:</strong> on some images, Otsu's method split "dark lung" from "bright bone" instead of "background" from "body" and broke the thorax apart. Fixed with a low, fixed threshold.</li>
+            <li><strong>Error two, framing:</strong> the first label was lung ÷ whole image. On a more tightly cropped external image, the value jumped: framing, not physiology, drove the number. Fixed to lung ÷ thorax.</li>
+            <li><strong>Linear probe:</strong> frozen encoder, one new layer. About 2.4% validation MAE, but it barely caught the inspiration/expiration difference (0.2 point) and had a post-surgery case far off the curve (39.4%).</li>
+            <li><strong>LoRA fine-tuning:</strong> last 6 of 27 attention layers, trained with the regression head. MAE dropped from 4.59% at epoch 1 to 1.98% at epoch 8, with no sign of overfitting.</li>
+            <li><strong>Retest on the 4 external images:</strong> the inspiration/expiration difference rose to 1.9 points (clinically correct direction) and the post-surgery case fell from 39.4% to 30.6%, with no ground truth to confirm the right value.</li>
+          </ol>
+          <figure class="rise">
+            <img src="../../../assets/img/medgemma-mascaras.webp" width="840" height="620" alt="Chest X-rays from the public dataset with the lung mask in red and the lung-to-thorax ratio of each." loading="lazy">
+            <figcaption>Masks from the public dataset (CC BY 4.0) and the lung-to-thorax ratio computed for each image. This was the validation ground truth.</figcaption>
+          </figure>
+          <p class="limits"><strong>Limit of the investigation.</strong> Validation was always against the dataset's own ground truth, never against an independent second source. The external sample (4 images) is too small for any statistical conclusion: it is a sanity check, not validation.</p>
+        </section>
+
+        <section class="rise" id="solution" aria-labelledby="solution-t">
+          <h2 id="solution-t">Solution</h2>
+          <ul>
+            <li><strong>Proposal:</strong> a pipeline that takes a chest X-ray and returns one number, the fraction of the thorax taken up by the lungs.</li>
+            <li><strong>Flow:</strong> image → MedGemma vision encoder (with the LoRA adapter) → regression head → number, in a simple web interface (Gradio).</li>
+            <li><strong>User:</strong> hypothetical, never tested with a real user. A physician or researcher exploring an auxiliary signal, never as a diagnostic reading.</li>
+            <li><strong>What it does not do:</strong> it does not measure volume in liters or area in cm² (the images have no physical scale); it does not separate the two lungs; it does not diagnose any condition.</li>
+            <li><strong>What it would take to go beyond a study:</strong> a dataset with real clinical labels, prospective validation against specialist reading and, most likely, regulatory approval.</li>
+          </ul>
+          <figure class="rise">
+            <img src="../../../assets/img/medgemma-app.webp" width="1200" height="649" alt="Screen of the study app with a chest X-ray and a prediction of 29.4% of the thorax taken up by the lungs." loading="lazy">
+            <figcaption>The study app (interface in Portuguese) warns on screen that the number is relative, not a physical area.</figcaption>
+          </figure>
+        </section>
+
+        <section class="rise" id="risks" aria-labelledby="risks-t">
+          <h2 id="risks-t">Risks</h2>
+          <ul>
+            <li><strong>Clinical:</strong> the number being read as a validated clinical measure. Mitigated with a warning in the interface and a limitations section in the README.</li>
+            <li><strong>Data:</strong> no identifiable patient data. The dataset is public and anonymized; the 4 external images came from public educational material, not from medical records.</li>
+            <li><strong>Bias:</strong> the dataset comes from two tuberculosis screening programs (USA and China), with specific populations, machines and framing. The reference mask under-marks the costophrenic angle, and the model inherits that bias.</li>
+            <li><strong>Operational:</strong> MedGemma has a restricted-use license (terms acceptance on Hugging Face), and reproducing the project requires a CUDA GPU.</li>
+          </ul>
+        </section>
+
+        <section class="rise" id="impact" aria-labelledby="impact-t">
+          <h2 id="impact-t">Impact</h2>
+          <p>The baseline was no automatic signal extracted from the image. The result: 1.98% mean error in validation against the dataset ground truth, and better generalization on external images after LoRA (inspiration/expiration difference from 0.2 to 1.9 points; post-surgery case from 39.4% to 30.6%).</p>
+          <p>There is no clinical or product impact, and that is stated here on purpose. The value is the skill: taking a health ML project from zero to a measurable result, with clinical judgment in every method decision.</p>
+          <p>The core lesson: a good validation result on your own dataset does not prove generalization. The external images exposed the real problems, and fixing them is what moved the project forward.</p>
+          <p>If the project continued, the README describes possible directions (an inspiration/expiration stiffness marker for COPD, an automated cardiothoracic ratio, follow-up of congestion in heart failure). All would need a dataset with real clinical labels before any use beyond study.</p>
+          <p class="case-links"><a href="https://github.com/md-augustolinhares/medgemma-lung-lora">See the repository on GitHub</a><a href="../prescription-assistant/">Next case: Prescription Assistant</a></p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="close">
+    <div class="wrap">
+      <p class="name">Augusto Linhares</p>
+      <p>Independent personal project. No clinical validation. Not a substitute for medical evaluation.</p>
+      <p class="note">Images: Montgomery + Shenzhen dataset, CC BY 4.0. No cookies, no analytics.</p>
+    </div>
+  </footer>
+</body>
+</html>
