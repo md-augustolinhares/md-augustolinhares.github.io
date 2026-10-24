@@ -39,7 +39,7 @@
     <section class="dark case-head">
       <div class="wrap">
         <h1 class="rise">CFM Normas</h1>
-        <p class="lead rise" style="--i:1">An open archive of the Brazilian Federal Council of Medicine's norms in Markdown, with the validity status of each one, for physicians and for AI agents.</p>
+        <p class="lead rise" style="--i:1">A public archive of the Brazilian Federal Council of Medicine's norms in an open format (Markdown), with the validity status of each one, built for physicians, researchers, developers, lawyers and AI agents.</p>
         <p class="limits rise" style="--i:2"><strong>Limits, first.</strong> An organized reference source, not legal advice. An independent project, not affiliated with the CFM. It covers 331 resolutions, opinions and recommendations from 2020 to 2026; the 801 legal rulings are not in yet. The weekly automatic update is configured but has no recorded run yet. The norms are in Portuguese.</p>
       </div>
     </section>
@@ -48,6 +48,7 @@
       <nav class="toc" aria-label="Case parts">
         <ol>
           <li><a href="#card">Case card</a></li>
+          <li><a href="#purpose">Purpose</a></li>
           <li><a href="#problem">Problem</a></li>
           <li><a href="#done">What I did</a></li>
           <li><a href="#decisions">Decisions</a></li>
@@ -60,12 +61,22 @@
         <section class="rise" id="card" aria-labelledby="card-t">
           <h2 id="card-t">Case card</h2>
           <dl class="ficha">
-            <div class="full"><dt>Context</dt><dd>A personal, public, open-source project (CC BY 4.0 license). Data updated on 24 Oct 2026.</dd></div>
+            <div class="full"><dt>Purpose</dt><dd>To put the CFM's norms in a public, open archive that anyone can use freely (CC BY 4.0 license) and, along the way, to build the skills below.</dd></div>
+            <div class="full"><dt>Context</dt><dd>A personal, public, open-source project. Data updated on 24 Oct 2026.</dd></div>
             <div class="full"><dt>My role</dt><dd>Solo, from reading the CFM portal to the data structure and the automation. I built it with AI-assisted programming; the problem, the scope and the decisions were mine.</dd></div>
             <div class="full"><dt>Skill this case shows</dt><dd>Designing open data infrastructure for AI use in healthcare, with traceable validity, stated limits and zero-cost automation.</dd></div>
             <div><dt>Tools</dt><dd>Markdown with YAML metadata, JSON catalogs, GitHub Actions · AI-assisted programming</dd></div>
             <div><dt>Evidence</dt><dd><a href="https://github.com/md-augustolinhares/cfm-normas">Public repository on GitHub</a>, with the catalogs and the statistics dashboard</dd></div>
           </dl>
+        </section>
+
+        <section class="rise" id="purpose" aria-labelledby="purpose-t">
+          <h2 id="purpose-t">Purpose</h2>
+          <p class="lead">The project exists, first of all, to give the public an open, reliable archive of the CFM's norms.</p>
+          <p>Historically, the medical profession faces a great scatter of information sources, which often makes it hard for health professionals to align and to share regulatory knowledge quickly.</p>
+          <p>I wanted to share that knowledge and bring the medical community, researchers, developers and lawyers closer around an accessible, reliable base. The repository makes the CFM's norms from 2020 to 2026 available in an open format, free to use.</p>
+          <p>The structure was designed for two readers: health professionals, and artificial intelligence agents that check ethical, regulatory and technical compliance in the practice of medicine.</p>
+          <p>Building the skills listed in the case card was the second purpose, and it comes with the first: the archive is the product, and the infrastructure shows how I think about a data product.</p>
         </section>
 
         <section class="rise" id="problem" aria-labelledby="problem-t">
