@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CFM Normas — caso completo | Augusto Linhares</title>
-  <meta name="description" content="Acervo público e aberto das normas do CFM de 2020 a 2026 em Markdown, com status de vigência e catálogos para agentes de IA. Problema, decisões, resultados e limites.">
+  <meta name="description" content="Acervo público e aberto das normas do CFM de 2010 a 2026 em Markdown, com status de vigência e catálogos para agentes de IA. Problema, decisões, resultados e limites.">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16" type="image/png">
@@ -40,7 +40,7 @@
       <div class="wrap">
         <h1 class="rise">CFM Normas</h1>
         <p class="lead rise" style="--i:1">Um acervo público das normas do Conselho Federal de Medicina em formato aberto (Markdown), com o status de vigência de cada uma, feito para médicos, pesquisadores, desenvolvedores, juristas e agentes de IA.</p>
-        <p class="limits rise" style="--i:2"><strong>Limites, antes de tudo.</strong> Fonte de consulta organizada, não assessoria jurídica. Projeto independente, sem vínculo com o CFM. Hoje cobre resoluções, pareceres e recomendações de 2020 a 2026; outros tipos de ato, como os despachos jurídicos, ainda não entraram. A atualização automática semanal está configurada, mas ainda não tem execução registrada.</p>
+        <p class="limits rise" style="--i:2"><strong>Limites, antes de tudo.</strong> Fonte de consulta organizada, não assessoria jurídica. Projeto independente, sem vínculo com o CFM. Hoje cobre resoluções, pareceres e recomendações de 2010 a 2026; outros tipos de ato, como os despachos jurídicos, e os anos anteriores a 2010 ainda não entraram.</p>
       </div>
     </section>
 
@@ -62,7 +62,7 @@
           <h2 id="ficha-t">Ficha</h2>
           <dl class="ficha">
             <div class="full"><dt>Propósito</dt><dd>Colocar as normas do CFM num acervo público e aberto, de uso livre (licença CC BY 4.0), e, junto com isso, desenvolver as competências abaixo.</dd></div>
-            <div class="full"><dt>Contexto</dt><dd>Projeto pessoal, público e em código aberto. Dados atualizados em 24/10/2026.</dd></div>
+            <div class="full"><dt>Contexto</dt><dd>Projeto pessoal, público e em código aberto. Acervo conferido em 28/10/2026; as medições de tamanho e tempo são de 24/10/2026.</dd></div>
             <div class="full"><dt>Meu papel</dt><dd>Sozinho, da leitura do portal do CFM à estrutura dos dados e à automação. Construí com programação assistida por IA; o problema, o escopo e as decisões foram meus.</dd></div>
             <div class="full"><dt>Competência que o caso prova</dt><dd>Desenhar infraestrutura de dados abertos para uso por IA em saúde, com rastreabilidade de vigência, limites declarados e automação de custo zero.</dd></div>
             <div><dt>Ferramentas</dt><dd>Markdown com metadados YAML, catálogos em JSON, GitHub Actions · programação assistida por IA</dd></div>
@@ -74,7 +74,7 @@
           <h2 id="proposito-t">Propósito</h2>
           <p class="lead">O projeto existe, antes de tudo, para dar ao público um acervo aberto e confiável das normas do CFM.</p>
           <p>Historicamente, a classe médica enfrenta uma grande dispersão de fontes de informação, o que muitas vezes dificulta o alinhamento e o compartilhamento ágil de conhecimento regulatório entre profissionais da saúde.</p>
-          <p>Quis compartilhar esse conhecimento e aproximar a comunidade médica, pesquisadores, desenvolvedores e juristas em torno de uma base acessível e confiável. Atualmente são 331 normas (resoluções, pareceres e recomendações de 2020 a 2026), em formato aberto e de uso livre. O objetivo é ampliar o acervo cada vez mais, para abranger o máximo possível de normas de interesse dos médicos do Brasil.</p>
+          <p>Quis compartilhar esse conhecimento e aproximar a comunidade médica, pesquisadores, desenvolvedores e juristas em torno de uma base acessível e confiável. Atualmente são 1.114 normas (resoluções, pareceres e recomendações de 2010 a 2026), em formato aberto e de uso livre. O roteiro público segue por décadas, de trás para a frente, até chegar a 100% do acervo do CFM desde 1957.</p>
           <p>A estrutura foi pensada para dois leitores: profissionais de saúde e agentes de inteligência artificial que conferem conformidade ética, regulatória e técnica no exercício da medicina.</p>
           <p>Desenvolver as competências descritas na ficha foi o segundo propósito, e vem junto: o acervo é o produto, e a infraestrutura é a prova de como eu penso um produto de dados.</p>
         </section>
@@ -91,16 +91,16 @@
         <section class="rise" id="feito" aria-labelledby="feito-t">
           <h2 id="feito-t">O que foi feito</h2>
           <ul>
-            <li><strong>Acervo:</strong> as resoluções, pareceres e recomendações do CFM de 2020 a 2026, cada uma em Markdown, com um cabeçalho YAML padronizado.</li>
-            <li><strong>Vigência:</strong> cada norma traz o status (vigente, revogada ou suspensa) e os identificadores das normas que ela revoga. Em 24/10/2026: 313 vigentes, 15 revogadas e 3 suspensas.</li>
+            <li><strong>Acervo:</strong> as resoluções, pareceres e recomendações do CFM de 2010 a 2026 (1.114 normas), cada uma em Markdown, com um cabeçalho YAML padronizado.</li>
+            <li><strong>Vigência:</strong> cada norma traz o status (vigente, revogada ou suspensa) e os identificadores das normas que ela revoga. Em 24/10/2026, quando o acervo tinha 331 normas (2020 a 2026): 313 vigentes, 15 revogadas e 3 suspensas.</li>
             <li><strong>Temas:</strong> 5 macro-temas (como ética médica e saúde digital) e 17 tags (como telemedicina, prontuário eletrônico e inteligência artificial).</li>
-            <li><strong>Trilha de IA e dados:</strong> um catálogo à parte com 53 normas que tocam em inteligência artificial, proteção de dados e telemedicina. Três marcam IA, 33 marcam proteção de dados e 30 marcam telemedicina; uma norma pode estar em mais de um grupo.</li>
-            <li><strong>Consulta por agentes de IA:</strong> os catálogos funcionam como um dicionário. O agente pede uma tag, recebe a lista de identificadores e lê cada norma direto pela URL, sem banco vetorial e sem baixar o repositório. O catálogo completo tem 433 KB; o da trilha de IA, 70 KB.</li>
-            <li><strong>Atualização automática:</strong> um fluxo do GitHub Actions, configurado para rodar todo domingo às 01:00 (horário de Brasília), consultar novos atos e atualizar o acervo. Ainda não há execução registrada.</li>
+            <li><strong>Trilha de IA e dados:</strong> um catálogo à parte com 110 normas (2010 a 2026) que tocam em inteligência artificial, proteção de dados e telemedicina.</li>
+            <li><strong>Consulta por agentes de IA:</strong> os catálogos funcionam como um dicionário. O agente pede uma tag, recebe a lista de identificadores e lê cada norma direto pela URL, sem banco vetorial e sem baixar o repositório.</li>
+            <li><strong>Atualização automática:</strong> um fluxo do GitHub Actions, configurado para rodar todo domingo às 01:00 (horário de Brasília), consultar novos atos e atualizar o acervo.</li>
           </ul>
           <figure class="rise">
             <img src="../../assets/img/cfm-painel.webp" width="1100" height="674" alt="Painel estatístico do projeto: total de normas, vigentes, revogadas ou suspensas e macro-temas, com gráficos por ano e por categoria." loading="lazy">
-            <figcaption>Painel estatístico do projeto, com dados de 24/10/2026. Não é um painel do CFM.</figcaption>
+            <figcaption>Painel estatístico do projeto, com dados de 24/10/2026 (331 normas, antes da Fase 2). Não é um painel do CFM.</figcaption>
           </figure>
         </section>
 
@@ -116,11 +116,10 @@
 
         <section class="rise" id="resultados" aria-labelledby="resultados-t">
           <h2 id="resultados-t">Resultados</h2>
-          <p>Medidos em 24/10/2026:</p>
           <ul>
-            <li><strong>Acervo completo para esses três tipos de ato.</strong> Todas as resoluções, pareceres e recomendações de 2020 a 2026 que o portal lista.</li>
-            <li><strong>4,37 MB</strong> para as normas em Markdown.</li>
-            <li><strong>3 min 40 s</strong> para a carga histórica de sete anos (tempo medido por mim).</li>
+            <li><strong>1.114 normas de 2010 a 2026.</strong> Duas fases concluídas: 2020 a 2026 (331 normas) e 2010 a 2019 (783 normas). A próxima é 2000 a 2009.</li>
+            <li><strong>Trilha de IA, proteção de dados e telemedicina com 110 normas</strong>, ante 53 na primeira fase.</li>
+            <li><strong>Medições da primeira fase (24/10/2026, 331 normas):</strong> 4,37 MB para as normas em Markdown e 3 min 40 s para a carga histórica de sete anos (tempo medido por mim). Não medi de novo com o acervo atual.</li>
             <li><strong>R$ 0,00 por mês:</strong> hospedagem e automação no plano gratuito do GitHub.</li>
           </ul>
         </section>
@@ -129,10 +128,9 @@
           <h2 id="limites-t">Limites</h2>
           <ul>
             <li><strong>Não é assessoria jurídica.</strong> O acervo organiza dados públicos e ajuda a ancorar uma IA em fontes oficiais. Não substitui consulta jurídica nem parecer de conselho regional para um caso concreto.</li>
-            <li><strong>Vigência na data da última atualização.</strong> O status vale para 24/10/2026. Para uma decisão com consequência, conferir no portal do CFM.</li>
-            <li><strong>Escopo atual, em ampliação.</strong> Hoje o acervo cobre resoluções, pareceres e recomendações de 2020 a 2026. Outros tipos de ato, como os despachos jurídicos, e anos anteriores ainda não entraram; ampliar o acervo é o plano. Portarias administrativas internas do CFM ficaram de fora.</li>
-            <li><strong>A trilha de IA é um filtro por tema.</strong> Ela aponta onde olhar, mas não diz o que cada norma exige. Só três normas marcam inteligência artificial.</li>
-            <li><strong>Automação ainda não comprovada.</strong> O fluxo semanal está configurado, mas as cargas feitas até agora não passaram por ele.</li>
+            <li><strong>Vigência na data da última atualização.</strong> O status vale para a data da última carga do acervo. Para uma decisão com consequência, conferir no portal do CFM.</li>
+            <li><strong>Escopo atual, em ampliação.</strong> Hoje o acervo cobre resoluções, pareceres e recomendações de 2010 a 2026. Outros tipos de ato, como os despachos jurídicos, e os anos anteriores a 2010 ainda não entraram; o roteiro é chegar a 100% do acervo do CFM desde 1957. Portarias administrativas internas do CFM ficaram de fora.</li>
+            <li><strong>A trilha de IA é um filtro por tema.</strong> Ela aponta onde olhar, mas não diz o que cada norma exige.</li>
           </ul>
           <p class="case-links"><a href="https://github.com/md-augustolinhares/cfm-normas" target="_blank" rel="noopener noreferrer">Ver o repositório no GitHub<span class="sr-only"> (abre em nova aba)</span></a><a href="https://github.com/md-augustolinhares/cfm-normas/blob/main/catalogo_ia_privacidade.json" target="_blank" rel="noopener noreferrer">Catálogo de IA e privacidade<span class="sr-only"> (abre em nova aba)</span></a><a href="../assistente-prescricao/">Caso anterior: Assistente de Prescrição</a></p>
         </section>

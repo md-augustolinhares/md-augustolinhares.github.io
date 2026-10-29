@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CFM Normas — full case | Augusto Linhares</title>
-  <meta name="description" content="A public, open archive of the CFM norms from 2020 to 2026 in Markdown, with validity status and catalogs for AI agents. Problem, decisions, results and limits.">
+  <meta name="description" content="A public, open archive of the CFM norms from 2010 to 2026 in Markdown, with validity status and catalogs for AI agents. Problem, decisions, results and limits.">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="/assets/img/favicon-16.png" sizes="16x16" type="image/png">
@@ -40,7 +40,7 @@
       <div class="wrap">
         <h1 class="rise">CFM Normas</h1>
         <p class="lead rise" style="--i:1">A public archive of the Brazilian Federal Council of Medicine's norms in an open format (Markdown), with the validity status of each one, built for physicians, researchers, developers, lawyers and AI agents.</p>
-        <p class="limits rise" style="--i:2"><strong>Limits, first.</strong> An organized reference source, not legal advice. An independent project, not affiliated with the CFM. Today it covers resolutions, opinions and recommendations from 2020 to 2026; other kinds of acts, such as legal rulings, are not in yet. The weekly automatic update is configured but has no recorded run yet. The norms are in Portuguese.</p>
+        <p class="limits rise" style="--i:2"><strong>Limits, first.</strong> An organized reference source, not legal advice. An independent project, not affiliated with the CFM. Today it covers resolutions, opinions and recommendations from 2010 to 2026; other kinds of acts, such as legal rulings, and the years before 2010 are not in yet. The norms are in Portuguese.</p>
       </div>
     </section>
 
@@ -62,7 +62,7 @@
           <h2 id="card-t">Case card</h2>
           <dl class="ficha">
             <div class="full"><dt>Purpose</dt><dd>To put the CFM's norms in a public, open archive that anyone can use freely (CC BY 4.0 license) and, along the way, to build the skills below.</dd></div>
-            <div class="full"><dt>Context</dt><dd>A personal, public, open-source project. Data updated on 24 Oct 2026.</dd></div>
+            <div class="full"><dt>Context</dt><dd>A personal, public, open-source project. Archive checked on 28 Oct 2026; the size and time measurements are from 24 Oct 2026.</dd></div>
             <div class="full"><dt>My role</dt><dd>Solo, from reading the CFM portal to the data structure and the automation. I built it with AI-assisted programming; the problem, the scope and the decisions were mine.</dd></div>
             <div class="full"><dt>Skill this case shows</dt><dd>Designing open data infrastructure for AI use in healthcare, with traceable validity, stated limits and zero-cost automation.</dd></div>
             <div><dt>Tools</dt><dd>Markdown with YAML metadata, JSON catalogs, GitHub Actions · AI-assisted programming</dd></div>
@@ -74,7 +74,7 @@
           <h2 id="purpose-t">Purpose</h2>
           <p class="lead">The project exists, first of all, to give the public an open, reliable archive of the CFM's norms.</p>
           <p>Historically, the medical profession faces a great scatter of information sources, which often makes it hard for health professionals to align and to share regulatory knowledge quickly.</p>
-          <p>I wanted to share that knowledge and bring the medical community, researchers, developers and lawyers closer around an accessible, reliable base. Currently there are 331 norms (resolutions, opinions and recommendations from 2020 to 2026), in an open format and free to use. The goal is to keep expanding the archive, to cover as many norms of interest to Brazil's physicians as possible.</p>
+          <p>I wanted to share that knowledge and bring the medical community, researchers, developers and lawyers closer around an accessible, reliable base. Currently there are 1,114 norms (resolutions, opinions and recommendations from 2010 to 2026), in an open format and free to use. The public roadmap moves back decade by decade, toward 100% of the CFM's archive since 1957.</p>
           <p>The structure was designed for two readers: health professionals, and artificial intelligence agents that check ethical, regulatory and technical compliance in the practice of medicine.</p>
           <p>Building the skills listed in the case card was the second purpose, and it comes with the first: the archive is the product, and the infrastructure shows how I think about a data product.</p>
         </section>
@@ -91,16 +91,16 @@
         <section class="rise" id="done" aria-labelledby="done-t">
           <h2 id="done-t">What I did</h2>
           <ul>
-            <li><strong>Archive:</strong> the CFM's resolutions, opinions and recommendations from 2020 to 2026, each one in Markdown with a standard YAML header.</li>
-            <li><strong>Validity:</strong> each norm carries its status (in force, revoked or suspended) and the identifiers of the norms it revokes. On 24 Oct 2026: 313 in force, 15 revoked and 3 suspended.</li>
+            <li><strong>Archive:</strong> the CFM's resolutions, opinions and recommendations from 2010 to 2026 (1,114 norms), each one in Markdown with a standard YAML header.</li>
+            <li><strong>Validity:</strong> each norm carries its status (in force, revoked or suspended) and the identifiers of the norms it revokes. On 24 Oct 2026, when the archive held 331 norms (2020 to 2026): 313 in force, 15 revoked and 3 suspended.</li>
             <li><strong>Themes:</strong> 5 macro-themes (such as medical ethics and digital health) and 17 tags (such as telemedicine, electronic health record and artificial intelligence).</li>
-            <li><strong>AI and data track:</strong> a separate catalog with 53 norms that touch on artificial intelligence, data protection and telemedicine. Three flag AI, 33 flag data protection and 30 flag telemedicine; a norm can sit in more than one group.</li>
-            <li><strong>Lookup by AI agents:</strong> the catalogs work like a dictionary. The agent asks for a tag, gets a list of identifiers and reads each norm straight from its URL, with no vector database and without downloading the repository. The full catalog is 433 KB; the AI track is 70 KB.</li>
-            <li><strong>Automatic update:</strong> a GitHub Actions workflow, configured to run every Sunday at 01:00 (Brasília time), check for new acts and update the archive. There is no recorded run yet.</li>
+            <li><strong>AI and data track:</strong> a separate catalog with 110 norms (2010 to 2026) that touch on artificial intelligence, data protection and telemedicine.</li>
+            <li><strong>Lookup by AI agents:</strong> the catalogs work like a dictionary. The agent asks for a tag, gets a list of identifiers and reads each norm straight from its URL, with no vector database and without downloading the repository.</li>
+            <li><strong>Automatic update:</strong> a GitHub Actions workflow, configured to run every Sunday at 01:00 (Brasília time), check for new acts and update the archive.</li>
           </ul>
           <figure class="rise">
             <img src="../../../assets/img/cfm-painel.webp" width="1100" height="674" alt="The project's statistics dashboard: total of norms, in force, revoked or suspended and macro-themes, with charts by year and by category." loading="lazy">
-            <figcaption>The project's statistics dashboard, with data from 24 Oct 2026 (interface in Portuguese). It is not a CFM dashboard.</figcaption>
+            <figcaption>The project's statistics dashboard, with data from 24 Oct 2026 (331 norms, before phase 2; interface in Portuguese). It is not a CFM dashboard.</figcaption>
           </figure>
         </section>
 
@@ -116,11 +116,10 @@
 
         <section class="rise" id="results" aria-labelledby="results-t">
           <h2 id="results-t">Results</h2>
-          <p>Measured on 24 Oct 2026:</p>
           <ul>
-            <li><strong>A complete archive for those three kinds of act.</strong> Every resolution, opinion and recommendation from 2020 to 2026 that the portal lists.</li>
-            <li><strong>4.37 MB</strong> for the norms in Markdown.</li>
-            <li><strong>3 min 40 s</strong> for the seven-year historical load (time measured by me).</li>
+            <li><strong>1,114 norms from 2010 to 2026.</strong> Two phases done: 2020 to 2026 (331 norms) and 2010 to 2019 (783 norms). Next is 2000 to 2009.</li>
+            <li><strong>An AI, data protection and telemedicine track with 110 norms</strong>, up from 53 in the first phase.</li>
+            <li><strong>First-phase measurements (24 Oct 2026, 331 norms):</strong> 4.37 MB for the norms in Markdown and 3 min 40 s for the seven-year historical load (time measured by me). Not measured again with the current archive.</li>
             <li><strong>R$ 0.00 per month:</strong> hosting and automation on GitHub's free plan.</li>
           </ul>
         </section>
@@ -129,10 +128,9 @@
           <h2 id="limits-t">Limits</h2>
           <ul>
             <li><strong>Not legal advice.</strong> The archive organizes public data and helps anchor an AI in official sources. It does not replace legal counsel or a regional council's opinion on a specific case.</li>
-            <li><strong>Validity as of the last update.</strong> The status holds for 24 Oct 2026. For a decision with consequences, check the CFM portal.</li>
-            <li><strong>Current scope, being expanded.</strong> Today the archive covers resolutions, opinions and recommendations from 2020 to 2026. Other kinds of acts, such as legal rulings, and earlier years are not in yet; expanding the archive is the plan. Internal administrative ordinances of the CFM were left out.</li>
-            <li><strong>The AI track is a theme filter.</strong> It points to where to look, but does not say what each norm requires. Only three norms flag artificial intelligence.</li>
-            <li><strong>Automation not yet proven.</strong> The weekly workflow is configured, but the loads done so far did not go through it.</li>
+            <li><strong>Validity as of the last update.</strong> The status holds as of the archive's last load. For a decision with consequences, check the CFM portal.</li>
+            <li><strong>Current scope, being expanded.</strong> Today the archive covers resolutions, opinions and recommendations from 2010 to 2026. Other kinds of acts, such as legal rulings, and the years before 2010 are not in yet; the roadmap is to reach 100% of the CFM's archive since 1957. Internal administrative ordinances of the CFM were left out.</li>
+            <li><strong>The AI track is a theme filter.</strong> It points to where to look, but does not say what each norm requires.</li>
           </ul>
           <p class="case-links"><a href="https://github.com/md-augustolinhares/cfm-normas" target="_blank" rel="noopener noreferrer">See the repository on GitHub<span class="sr-only"> (opens in a new tab)</span></a><a href="https://github.com/md-augustolinhares/cfm-normas/blob/main/catalogo_ia_privacidade.json" target="_blank" rel="noopener noreferrer">AI and privacy catalog<span class="sr-only"> (opens in a new tab)</span></a><a href="../prescription-assistant/">Previous case: Prescription Assistant</a></p>
         </section>
