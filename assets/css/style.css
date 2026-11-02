@@ -1,19 +1,25 @@
-/* Augusto Linhares — layout híbrido: palco fixo só no topo e nos casos; o resto em coluna larga com faixas de imagem. */
+/* Augusto Linhares — layout híbrido: palco fixo só no topo e nos casos; o resto em coluna larga com faixas de imagem.
+   Cores e fontes do brandbook v2 (02/11/2026), em versão sutil: cinza-ardósia no lugar do preto. */
 
 :root {
-  --ink: #0B1F33;
-  --deep-teal: #0E4A52;
-  --signal: #5EEAD4;
-  --link: #0E7C74;
-  --link-hover: #0B5E58;
-  --paper: #F7F8F6;
+  --ink: #1A2230;          /* bloco escuro: Grafite do brandbook, clareado para o site */
+  --card-dark: #222C3B;
+  --linha-dark: #2C3748;
+  --deep-teal: #243044;
+  --signal: #19E3A1;       /* Sinal: só sobre fundo escuro */
+  --verde: #087A5A;        /* Sinal escuro: sobre fundo claro */
+  --azul: #1F5FD6;         /* Dado escuro: links e comparação sobre fundo claro */
+  --link: #1F5FD6;
+  --link-hover: #174BAA;
+  --paper: #F3F5F7;
   --white: #FFFFFF;
-  --mist: #CFE3E8;
-  --soft: #46566A;
-  --limit: #E7EDEA;
+  --mist: #A9B6C8;         /* Névoa, apoio sobre o cinza */
+  --soft: #4A5566;         /* Tinta 2 */
+  --limit: #EEF1F4;
 
-  --serif: "Instrument Serif", serif;
-  --sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
 
   /* cinco tamanhos */
   --t-display: clamp(3.5rem, 6.4vw, 6.25rem);
@@ -294,3 +300,52 @@ h3 { font-family: var(--serif); font-weight: 400; font-size: var(--t-lead); line
 
 /* Aviso para leitor de tela: link que abre em nova aba */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* ---------- Brandbook v2 (sutil) ---------- */
+
+body { font-weight: 400; -webkit-font-smoothing: antialiased; }
+
+/* grade de pontos discreta nos blocos escuros */
+.dark, .close {
+  background-image: radial-gradient(circle, rgba(169, 182, 200, 0.12) 1.2px, transparent 1.6px);
+  background-size: 24px 24px;
+}
+
+/* títulos: Outfit 600 e uma palavra em Instrument Serif itálico (o nome continua em Instrument Serif) */
+h2, h3, .case h3, .case-head h1, .principles strong, .readout .value, .post-list strong, .mail, .statement {
+  font-family: var(--sans); font-weight: 600; letter-spacing: -0.025em; line-height: 1.05;
+}
+h1 em, h2 em, h3 em, .statement em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; color: var(--verde); }
+.dark h1 em, .dark h2 em, .dark .statement em, .case-head em { color: var(--signal); }
+.statement { color: var(--paper); font-size: clamp(1.6rem, 2.8vw, 2.5rem); line-height: 1.1; max-width: 22ch; }
+.principles strong { font-size: clamp(1.6rem, 2.6vw, 2.25rem); }
+.hero h1, .close .name { font-family: var(--serif); font-weight: 400; }
+.brand span { font-family: var(--serif); font-size: 1.2rem; }
+
+/* rótulos em mono (datas e legendas curtas) */
+.facts dt, .meta dt, .ficha dt { font-family: var(--mono); font-weight: 500; font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.timeline .when, .writings time, .post-list time, .jot .when { font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.02em; }
+.case .kind { font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.02em; }
+.chips li { font-family: var(--mono); font-size: 0.8125rem; border-radius: 8px; }
+
+/* botões */
+.btn { background: var(--verde); color: #fff !important; border-radius: 12px; font-family: var(--sans); }
+.btn:hover { background: #066247; }
+.dark .btn { background: var(--signal); color: var(--ink) !important; }
+.dark .btn:hover { background: #4DF0BC; }
+.bar a:hover { color: var(--signal); }
+
+/* cartões de limite: filete verde à esquerda e rótulo em mono */
+.case, .ficha, .probe { border-radius: 12px; }
+.limits { background: var(--limit); border-left: 4px solid var(--verde); border-radius: 4px 12px 12px 4px; color: var(--ink); }
+.limits strong { font-family: var(--mono); font-weight: 500; font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--verde); margin-right: 0.5rem; }
+.case-head .limits { background: var(--card-dark); border-left-color: var(--signal); color: var(--paper); }
+.case-head .limits strong { color: var(--signal); }
+
+/* seletor do MedGemma: antes em azul, depois em verde */
+.readout .value { color: var(--azul); }
+.bar-fill { background: var(--azul); }
+.probe:has(.p-lora:checked) .readout .value { color: var(--verde); }
+.probe:has(.p-lora:checked) .bar-fill { background: var(--verde); }
+.probe label { border-radius: 8px; }
+.case h3 { font-size: clamp(1.4rem, 2.4vw, 2.2rem); }
